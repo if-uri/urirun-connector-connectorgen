@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "urirun-connector-connectorgen"
+version = "0.1.0"
+description = "Meta-connector: generate NEW connectors as a URI process (connector://spec/command/generate), policy-checked + smoke-tested. Autonomy that creates connectors instead of waiting."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Tom Sapletta" }]
+dependencies = ["urirun>=0.4.14", "urirun-reasoner>=0.1.0"]
+[project.scripts]
+urirun-connectorgen = "urirun_connector_connectorgen.core:main"
+[project.entry-points."urirun.bindings"]
+connectorgen = "urirun_connector_connectorgen.core:urirun_bindings"
+[tool.setuptools.packages.find]
+include = ["urirun_connector_connectorgen*"]
